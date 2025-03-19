@@ -8,7 +8,9 @@ const jwt = require('jsonwebtoken');
 const {Product} = require('./model/Product');
 const cors = require('cors');
 const morgan= require('morgan');
-const {Cart} = require('./model/Cart');
+const {Cart} = require('./model/cart');
+
+
 
 
 app.use(express.json())

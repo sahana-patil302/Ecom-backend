@@ -3,7 +3,7 @@ const express = require ('express');
 const app = express();
 const {User} = require('./model/User');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {Product} = require('./model/Product');
 const cors = require('cors');
@@ -16,12 +16,16 @@ app.use(cors())
 app.use(morgan('dev'))
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/kleProject')
+let MONGODB_URL = "mongodb+srv://sahanap388:TY4WtHnDZWSgU90i@cluster0.cvsy2.mongodb.net/?retryWrites=true&w=majority"
+
+mongoose.connect(MONGODB_URL)
 .then(()=>{
     console.log("db connected")
 }).catch(()=>{
     console.log("db not connnected")
 })
+// TY4WtHnDZWSgU90i
+
 
 
 //task-1 create a route for register user
